@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fund my mansions, yachts, and expensive stuff with cryptocurrency. The most honest luxury crowdfunding on the internet.">
+    <meta name="theme-color" content="#0d1117">
+    <title>Mansions, Yachts & Expensive Stuff - Fund My Lavish Dreams!</title>
+    
+    <!-- Preload fonts for better performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0d1117;
+            color: #c9d1d9;
+            line-height: 1.6;
+            padding: 1rem;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem 0;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .logo-container {
+            display: inline-block;
+            position: relative;
+            margin-bottom: 1.5rem;
+            width: 200px;
+            height: 120px;
+        }
+
+        .logo-scene {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .floating-item {
+            position: absolute;
+            animation: float 3s ease-in-out infinite;
+            font-size: 1.5rem;
+        }
+
+        .floating-item:nth-child(1) {
+            left: 10px;
+            top: 20px;
+            animation-delay: 0s;
+        }
+
+        .floating-item:nth-child(2) {
+            right: 10px;
+            top: 30px;
+            animation-delay: 0.5s;
+        }
+
+        .floating-item:nth-child(3) {
+            left: 0;
+            bottom: 10px;
+            animation-delay: 1s;
+        }
+
+        .floating-item:nth-child(4) {
+            right: 0;
+            bottom: 20px;
+            animation-delay: 1.5s;
+        }
+
+        .floating-item:nth-child(5) {
+            left: 30px;
+            top: 0;
+            animation-delay: 2s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(5deg); }
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 50%, #ffd700 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            box-shadow: 
+                0 0 30px rgba(255, 215, 0, 0.5),
+                0 0 60px rgba(255, 215, 0, 0.3),
+                inset 0 2px 4px rgba(255, 255, 255, 0.5);
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            overflow: hidden;
+            z-index: 10;
+            animation: mainFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes mainFloat {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -60%) scale(1.05); }
+        }
+
+        .logo::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 30%,
+                rgba(255, 255, 255, 0.3) 50%,
+                transparent 70%
+            );
+            transform: rotate(45deg);
+            animation: shine 3s ease-in-out infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        /* Sparkles around the logo */
+        .sparkle {
+            position: absolute;
+            color: #ffd700;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+
+        .sparkle:nth-child(6) {
+            left: 20%;
+            top: 10%;
+            animation-delay: 0s;
+        }
+
+        .sparkle:nth-child(7) {
+            right: 20%;
+            top: 20%;
+            animation-delay: 0.3s;
+        }
+
+        .sparkle:nth-child(8) {
+            left: 15%;
+            bottom: 25%;
+            animation-delay: 0.6s;
+        }
+
+        .sparkle:nth-child(9) {
+            right: 15%;
+            bottom: 15%;
+            animation-delay: 0.9s;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+
+        h1 {
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
+            background: linear-gradient(135deg, #ffd700 0%, #f778ba 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .tagline {
+            font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+            color: #8b949e;
+            font-style: italic;
+        }
+
+        .intro {
+            background: #161b22;
+            border-radius: 12px;
+            padding: clamp(1.5rem, 4vw, 2rem);
+            margin-bottom: 2rem;
+            border: 1px solid #30363d;
+        }
+
+        .intro h2 {
+            color: #58a6ff;
+            margin-bottom: 1rem;
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+        }
+
+        .crypto-section {
+            margin-bottom: 2rem;
+        }
+
+        .crypto-card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: clamp(1rem, 3vw, 1.5rem);
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .crypto-card:hover {
+            border-color: #58a6ff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(88, 166, 255, 0.15);
+        }
+
+        .crypto-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .crypto-name {
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
+            font-weight: bold;
+            color: #f778ba;
+        }
+
+        .qr-container {
+            display: flex;
+            align-items: center;
+            gap: clamp(1rem, 3vw, 2rem);
+            flex-wrap: wrap;
+        }
+
+        .qr-code {
+            width: 150px;
+            height: 150px;
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .qr-code img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .address-container {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .address-label {
+            font-size: 0.9rem;
+            color: #8b949e;
+            margin-bottom: 0.5rem;
+        }
+
+        .address-box {
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 0.75rem;
+            font-family: 'Courier New', monospace;
+            font-size: clamp(0.7rem, 2vw, 0.85rem);
+            word-break: break-all;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            user-select: all;
+            -webkit-user-select: all;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .address-box:hover {
+            border-color: #58a6ff;
+            background: #161b22;
+        }
+
+        .address-box:active {
+            transform: scale(0.98);
+        }
+
+        .copy-hint {
+            position: absolute;
+            top: -25px;
+            right: 0;
+            font-size: 0.75rem;
+            color: #58a6ff;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .address-box:hover .copy-hint {
+            opacity: 1;
+        }
+
+        .copied {
+            animation: flash 0.5s ease;
+        }
+
+        @keyframes flash {
+            0%, 100% { background: #0d1117; }
+            50% { background: #1f6feb; }
+        }
+
+        .disclaimer {
+            background: #161b22;
+            border: 2px dashed #f778ba;
+            border-radius: 12px;
+            padding: clamp(1.5rem, 4vw, 2rem);
+            margin: 2rem 0;
+        }
+
+        .disclaimer h3 {
+            color: #f778ba;
+            margin-bottom: 1rem;
+        }
+
+        .disclaimer ul {
+            list-style: none;
+            padding-left: 1rem;
+        }
+
+        .disclaimer li {
+            margin-bottom: 0.5rem;
+        }
+
+        .disclaimer li::before {
+            content: "⚠️ ";
+            margin-right: 0.5rem;
+        }
+
+        .thanks {
+            text-align: center;
+            padding: clamp(1.5rem, 4vw, 2rem);
+            background: #161b22;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+
+        .thanks h3 {
+            color: #58a6ff;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: #8b949e;
+            border-top: 1px solid #30363d;
+            margin-top: 3rem;
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 50%;
+            transform: translateX(50%) translateY(100px);
+            background: #1f6feb;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 12px rgba(31, 111, 235, 0.3);
+        }
+
+        .toast.show {
+            transform: translateX(50%) translateY(0);
+            opacity: 1;
+        }
+
+        /* Mobile optimizations */
+        @media (max-width: 600px) {
+            body {
+                padding: 0.5rem;
+            }
+            
+            .logo-container {
+                width: 160px;
+                height: 100px;
+                margin-bottom: 1rem;
+            }
+            
+            .logo {
+                width: 60px;
+                height: 60px;
+                font-size: 2rem;
+            }
+            
+            .floating-item {
+                font-size: 1.2rem;
+            }
+            
+            .sparkle {
+                display: none; /* Hide sparkles on mobile for cleaner look */
+            }
+            
+            .qr-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .qr-code {
+                margin: 0 auto;
+                width: 130px;
+                height: 130px;
+            }
+            
+            .address-container {
+                width: 100%;
+            }
+            
+            .toast {
+                bottom: 1rem;
+                padding: 0.75rem 1.5rem;
+            }
+            
+            .disclaimer li {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Touch device optimizations */
+        @media (hover: none) {
+            .copy-hint {
+                display: none;
+            }
+            
+            .address-box {
+                padding: 1rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Dark mode support */
+        @media (prefers-color-scheme: light) {
+            body {
+                background: #f6f8fa;
+                color: #24292e;
+            }
+            
+            .intro, .crypto-card, .thanks {
+                background: white;
+                border-color: #e1e4e8;
+            }
+            
+            .address-box {
+                background: #f6f8fa;
+                border-color: #e1e4e8;
+            }
+            
+            .address-box:hover {
+                background: white;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <div class="logo-scene">
+                    <!-- Floating luxury items -->
+                    <span class="floating-item">🏰</span>
+                    <span class="floating-item">🛥️</span>
+                    <span class="floating-item">💎</span>
+                    <span class="floating-item">🚁</span>
+                    <span class="floating-item">🏝️</span>
+                    <!-- Main money logo -->
+                    <div class="logo">💰</div>
+                    <!-- Sparkles -->
+                    <span class="sparkle">✨</span>
+                    <span class="sparkle">✨</span>
+                    <span class="sparkle">✨</span>
+                    <span class="sparkle">✨</span>
+                </div>
+            </div>
+            <h1>Mansions, Yachts & Expensive Stuff - Please Fund My Dreams!</h1>
+            <p class="tagline">The Internet's Most Shameless Luxury Lifestyle Crowdfunding Campaign</p>
+        </header>
+
+        <div class="intro">
+            <h2>🎯 The Mission: Help Me Achieve Ridiculous Levels of Comfort</h2>
+            <p>Look, I'm going to be refreshingly honest here. I want to live in excessive, borderline offensive amounts of luxury. We're talking "gold toilet paper" levels of unnecessary. Your crypto donations will directly fund my journey from regular person to someone who owns multiple yachts they can't even sail. It's shallow, it's materialistic, and it's absolutely what I'm going for.</p>
+            <br>
+            <p><strong>Your Donations Will Help Me Acquire:</strong></p>
+            <ul style="margin-left: 2rem; margin-top: 0.5rem;">
+                <li>• Mansions (yes, plural - one for each mood)</li>
+                <li>• A yacht with a smaller yacht inside it (yachtception)</li>
+                <li>• Cars I don't know how to pronounce</li>
+                <li>• A personal assistant to manage my other personal assistants</li>
+                <li>• Furniture made from extinct wood (ethically sourced from museums)</li>
+                <li>• A helicopter just for my groceries</li>
+                <li>• Shoes that cost more than your car (sorry)</li>
+                <li>• A winter home, summer home, and a home for those confusing in-between days</li>
+                <li>• Art I don't understand but will pretend to</li>
+                <li>• First-class tickets to places I'll complain about</li>
+                <li>• A wine cellar for wines I'll never drink because they're "investments"</li>
+                <li>• The kind of comfort that makes other rich people uncomfortable</li>
+            </ul>
+        </div>
+
+        <div class="crypto-section">
+            <div class="crypto-card">
+                <div class="crypto-header">
+                    <span class="crypto-name">Bitcoin (BTC)</span>
+                </div>
+                <div class="qr-container">
+                    <div class="qr-code">
+                        <img src="images/btc-qr.png" alt="Bitcoin QR Code">
+                    </div>
+                    <div class="address-container">
+                        <div class="address-label">Wallet Address:</div>
+                        <div class="address-box" onclick="copyAddress(this, 'BTC')">
+                            bc1qwaqhyqwpp0yevpnsrpk9aqrytvhalhed30p3fw
+                            <span class="copy-hint">📋 Click to copy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="crypto-card">
+                <div class="crypto-header">
+                    <span class="crypto-name">Ethereum (ETH)</span>
+                </div>
+                <div class="qr-container">
+                    <div class="qr-code">
+                        <img src="images/eth-qr.png" alt="Ethereum QR Code">
+                    </div>
+                    <div class="address-container">
+                        <div class="address-label">Wallet Address:</div>
+                        <div class="address-box" onclick="copyAddress(this, 'ETH')">
+                            0x495716826345cfB034e24daDffbf3555507a8b55
+                            <span class="copy-hint">📋 Click to copy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="crypto-card">
+                <div class="crypto-header">
+                    <span class="crypto-name">Dogecoin (DOGE)</span>
+                </div>
+                <div class="qr-container">
+                    <div class="qr-code">
+                        <img src="images/doge-qr.png" alt="Dogecoin QR Code">
+                    </div>
+                    <div class="address-container">
+                        <div class="address-label">Much Address. Very Wallet. Wow.</div>
+                        <div class="address-box" onclick="copyAddress(this, 'DOGE')">
+                            DLW3ZvEotr6A8NxV113ZuqXGbDLoNjxP7N
+                            <span class="copy-hint">📋 Click to copy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="crypto-card">
+                <div class="crypto-header">
+                    <span class="crypto-name">XRP</span>
+                </div>
+                <div class="qr-container">
+                    <div class="qr-code">
+                        <img src="images/xrp-qr.png" alt="XRP QR Code">
+                    </div>
+                    <div class="address-container">
+                        <div class="address-label">Wallet Address:</div>
+                        <div class="address-box" onclick="copyAddress(this, 'XRP')">
+                            rKSApScsLUEtB9a7eiaevd4wdKFLiqZEsT
+                            <span class="copy-hint">📋 Click to copy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="crypto-card">
+                <div class="crypto-header">
+                    <span class="crypto-name">Solana (SOL)</span>
+                </div>
+                <div class="qr-container">
+                    <div class="qr-code">
+                        <img src="images/sol-qr.png" alt="Solana QR Code">
+                    </div>
+                    <div class="address-container">
+                        <div class="address-label">Wallet Address:</div>
+                        <div class="address-box" onclick="copyAddress(this, 'SOL')">
+                            4BTRxyqUUSxDepWxJrZaWN9bWmAnfsNUVTpyvp1iNGrq
+                            <span class="copy-hint">📋 Click to copy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="disclaimer">
+            <h3>⚖️ Extremely Legal Disclaimer</h3>
+            <ul>
+                <li>This is literally just a tip jar. You're not investing in anything except my questionable lifestyle choices.</li>
+                <li>There are no refunds because there's nothing to refund from. This is pure, unadulterated giving.</li>
+                <li>I promise absolutely nothing. Your money will probably be spent on something ridiculous.</li>
+                <li>Side effects may include: feeling generous, mild confusion, and stories to tell at parties.</li>
+                <li>Not financial advice. Obviously.</li>
+            </ul>
+        </div>
+
+        <div class="thanks">
+            <h3>💝 Hall of Gratitude</h3>
+            <p><strong>To the magnificent souls who've contributed:</strong><br>
+            You're the real MVPs. May your coffee always be the perfect temperature and may you always find parking on the first try.</p>
+            <br>
+            <p><strong>To those considering it:</strong><br>
+            You're already amazing for reading this far. Your presence here has increased the site's coolness factor by at least 37%.</p>
+            <br>
+            <p><strong>To those who can't contribute:</strong><br>
+            You're still awesome! Your moral support is worth its weight in Bitcoin. Keep being incredible, and maybe share this with someone who owns a money printer.</p>
+        </div>
+
+        <footer>
+            <p>Made with ❤️, sarcasm, and a concerning amount of optimism</p>
+            <p style="margin-top: 0.5rem;">
+                Remember: Every great fortune started with someone making questionable financial decisions.<br>
+                This might not be one of them, but hey, at least we're having fun!
+            </p>
+        </footer>
+    </div>
+
+    <div class="toast" id="toast">
+        Copied to clipboard! 🎉
+    </div>
+
+    <script>
+        function copyAddress(element, crypto) {
+            const address = element.childNodes[0].textContent.trim();
+            
+            // Create a temporary textarea for copying
+            const textArea = document.createElement("textarea");
+            textArea.value = address;
+            textArea.style.position = "fixed";
+            textArea.style.left = "-999999px";
+            textArea.style.top = "-999999px";
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            
+            try {
+                document.execCommand('copy');
+                element.classList.add('copied');
+                showToast();
+                
+                setTimeout(() => {
+                    element.classList.remove('copied');
+                }, 500);
+            } catch (err) {
+                console.error('Failed to copy:', err);
+            }
+            
+            document.body.removeChild(textArea);
+        }
+
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2000);
+        }
+
+        // Add some personality to the console
+        console.log('%c💸 Welcome, curious developer! 💸', 'color: #ffd700; font-size: 20px; font-weight: bold;');
+        console.log('%cIf you\'re here to check if this is a scam...', 'color: #f778ba; font-size: 14px;');
+        console.log('%cIt\'s not. It\'s just a really honest tip jar for funding excessive luxury. 🎩', 'color: #8b949e; font-size: 14px;');
+        console.log('%cBut seriously, only donate if you find this amusing. 😄', 'color: #58a6ff; font-size: 14px;');
+
+        // Preload images
+        const images = ['btc-qr.png', 'eth-qr.png', 'doge-qr.png', 'xrp-qr.png', 'sol-qr.png'];
+        images.forEach(src => {
+            const img = new Image();
+            img.src = 'images/' + src;
+        });
+    </script>
+</body>
+</html>
